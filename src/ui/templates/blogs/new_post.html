@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %} Nuevo post {% endblock %}
+
+{% block content %}
+    {{ message }}
+    <form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+        <button>Submit</button>
+    </div>
+</form>
+{% endblock %}

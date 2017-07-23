@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %} Últimos post {% endblock %}
+
+{% block content %}
+    <ul>
+        {% for blog in blog_objects %}
+            <li>
+                <a href="{% url 'user_posts_list' blog.username %}">{{ blog.username }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block header %} Detalle {% endblock %}
+
+{% block content %}
+<p>
+    <h2>Título</h2>
+    {{ post_detail.title }}
+</p>
+<p>
+    <h2>Introducción</h2>
+    {{ post_detail.intro }}
+</p>
+<p>
+    <h2>Detalle</h2>
+    {{ post_detail.body }}
+</p>
+{% if post_detail.media_url %}
+    <p>
+        <h2>URL de imagen o video</h2>
+        {{ post_detail.media_url }}
+    </p>
+{% endif %}
+<p>
+    <h2>Publicado</h2>
+    {% if post_detail.publish_at %}
+        {{ post_detail.publish_at }}
+    {% else %}
+        No publicado
+    {% endif %}
+</p>
+<p>
+    <h2>Creado</h2>
+    {{ post_detail.created_at }}
+</p>
+<p>
+    <h2>Modificado</h2>
+    {{ post_detail.modified_at }}
+</p>
+<p>
+    <h2>Categorías</h2>
+    <ul>
+        {% for genre in post_detail.genres.all %}
+            <li>{{genre.name}}</li>
+        {% endfor %}
+    </ul>
+</p>
+<p>
+    <h2>Autor</h2>
+    {{ post_detail.owner.username }}
+</p>
+
+{% endblock %}

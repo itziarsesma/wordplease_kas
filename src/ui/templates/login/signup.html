@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %} Registro {% endblock %}
+
+{% block content %}
+
+<div style="color:red"> {{ message }} </div>
+
+<form method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div>
+        <button>Registrar</button>
+    </div>
+</form>
+{% endblock %}
